@@ -4,7 +4,7 @@
 
 This repo holds the plugin, extension and config files so you can use Vibe Shipped from your coding agent. It does not contain the site source.
 
-**MCP endpoint:** `https://vibeshipped.io/api/mcp` (Streamable HTTP, no auth, v1.4.0, 14 tools)
+**MCP endpoint:** `https://vibeshipped.io/api/mcp` (Streamable HTTP, no auth, v1.5.0, 16 tools)
 **Docs:** https://vibeshipped.io/agents
 
 ## Install
@@ -21,9 +21,12 @@ This repo holds the plugin, extension and config files so you can use Vibe Shipp
 
 Inside Claude Code you can also run `/plugin marketplace add sorindecu/vibeshipped-agent` then `/plugin install vibeshipped@vibeshipped`.
 
-## Tools (14)
+## Tools (16)
 
-Read-only: `whats_new`, `search_apps`, `get_app`, `latest_apps`, `list_tools`, `compare_tools`, `top_tools`, `get_vibe50`, `list_agent_tools`, `list_harnesses`, `get_harness`, `get_sponsorship_info`.
+Read-only: `whats_new`, `search_apps`, `get_app`, `latest_apps`, `list_tools`, `get_tool`, `compare_tools` (2-4 build tools, harnesses or agent tools side by side), `recommend_stack` (ranks tools/harnesses for an app idea with deterministic, documented scoring), `top_tools`, `get_vibe50`, `list_agent_tools`, `list_harnesses`, `get_harness`, `get_sponsorship_info`.
+
+A2A agent card: https://vibeshipped.io/.well-known/agent-card.json
+
 Writes: `submit_app` (adds an app to a review queue) and `subscribe_newsletter` (only with the user's own email).
 
 ## Layout
@@ -47,3 +50,8 @@ The full directory is an open dataset under CC BY 4.0: https://vibeshipped.io/da
 ## License
 
 The config and manifest files in this repo are MIT licensed (see [LICENSE](LICENSE)). Vibe Shipped data is CC BY 4.0.
+
+## Changelog
+
+- **v1.5.0** (2026-10-19): new `recommend_stack` and `get_tool`; `compare_tools` now takes 2-4 slugs across build tools, harnesses and Agent Toolbox entries. A2A agent card published. 16 tools.
+- **v1.4.0**: 14 tools.
