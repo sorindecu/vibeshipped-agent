@@ -1,0 +1,2 @@
+vscode:mcp/install?%7B%22name%22%3A%22vibeshipped%22%2C%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A//vibeshipped.io/api/mcp%22%7D
+cursor://anysphere.cursor-deeplink/mcp/install?name=vibeshipped&config=eyJ1cmwiOiJodHRwczovL3ZpYmVzaGlwcGVkLmlvL2FwaS9tY3AifQ==

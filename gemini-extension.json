@@ -1,0 +1,9 @@
+{
+  "name": "vibeshipped",
+  "version": "1.4.0",
+  "description": "Sourced, dated facts about AI coding tools, agent harnesses and real apps built with them, via the Vibe Shipped MCP server (no auth).",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "vibeshipped": { "httpUrl": "https://vibeshipped.io/api/mcp" }
+  }
+}

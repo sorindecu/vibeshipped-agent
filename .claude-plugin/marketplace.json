@@ -1,0 +1,15 @@
+{
+  "name": "vibeshipped",
+  "owner": { "name": "Vibe Shipped", "url": "https://vibeshipped.io" },
+  "metadata": { "description": "Vibe Shipped plugins for Claude Code", "version": "1.4.0" },
+  "plugins": [
+    {
+      "name": "vibeshipped",
+      "source": "./",
+      "description": "Sourced, dated facts about AI coding tools, agent harnesses and real apps built with them (MCP server + skill).",
+      "version": "1.4.0",
+      "homepage": "https://vibeshipped.io/agents",
+      "category": "development"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "vibeshipped",
+  "version": "1.4.0",
+  "description": "Sourced, dated facts about AI coding tools, agent harnesses and real apps built with them, via the Vibe Shipped MCP server (no auth).",
+  "author": {
+    "name": "Vibe Shipped",
+    "url": "https://vibeshipped.io"
+  },
+  "homepage": "https://vibeshipped.io/agents",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "ai-coding-tools",
+    "vibe-coding",
+    "directory",
+    "harnesses"
+  ],
+  "repository": "https://github.com/sorindecu/vibeshipped-agent"
+}

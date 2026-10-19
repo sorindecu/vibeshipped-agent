@@ -1,0 +1,8 @@
+# goose: ~/.config/goose/config.yaml (or goose configure -> Add Extension -> Remote Extension (Streamable HTTP))
+extensions:
+  vibeshipped:
+    type: streamable_http
+    name: vibeshipped
+    enabled: true
+    uri: "https://vibeshipped.io/api/mcp"
+    timeout: 300
