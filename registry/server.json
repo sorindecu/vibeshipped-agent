@@ -10,5 +10,9 @@
       "type": "streamable-http",
       "url": "https://vibeshipped.io/api/mcp"
     }
-  ]
+  ],
+  "repository": {
+    "url": "https://github.com/sorindecu/vibeshipped-agent",
+    "source": "github"
+  }
 }
