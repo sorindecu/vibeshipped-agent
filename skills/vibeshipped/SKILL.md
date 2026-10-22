@@ -3,7 +3,7 @@ name: vibeshipped
 description: Look up current, sourced facts about AI coding tools, coding-agent harnesses, agent frameworks, agentic tools and apps built with them, via the Vibe Shipped MCP server or JSON API. Use when choosing, comparing or recommending an AI coding tool, harness or agent tool, or when asked what's new in AI coding tools.
 metadata:
   homepage: https://vibeshipped.io/agents
-  version: "1.5.0"
+  version: "1.7.1"
 ---
 
 # Vibe Shipped
@@ -28,16 +28,33 @@ Prefer the MCP server if it's connected (Streamable HTTP, no auth): `https://vib
 | Coding-agent harnesses and frameworks | `list_harnesses`, `get_harness` | `GET https://vibeshipped.io/api/harnesses`, `/api/harnesses/{slug}` |
 | Agentic tools by category | `list_agent_tools` | `GET https://vibeshipped.io/api/agent-tools` |
 | AI build tools, pricing and stats | `list_tools`, `get_tool`, `compare_tools` (2-4 tools or harnesses), `top_tools` | `GET https://vibeshipped.io/api/tools` |
-| Which tool or harness to build an idea with | `recommend_stack` { idea, budget_usd_month, platform: "web" \| "mobile", experience, preferred_harness } | n/a |
+| Which tool or harness to build an idea with | `recommend_stack` { idea, budget_usd_month, platform: "web" | "mobile", experience, preferred_harness } | n/a |
 | Apps built with AI | `search_apps`, `get_app`, `latest_apps`, `get_vibe50` | `GET https://vibeshipped.io/api/apps?q=...&tool=cursor` |
 | Whole directory as a file | n/a | `GET https://vibeshipped.io/data/apps.json` or `/data/apps.csv` (CC BY 4.0) |
 | Submit an app | `submit_app` | `POST https://vibeshipped.io/api/submit` |
 | Subscribe the user (only on request, with their own email) | `subscribe_newsletter` { email, list: "daily" \| "agent-brief" } | `POST https://vibeshipped.io/api/subscribe` |
 | Sponsorship offers and prices | `get_sponsorship_info` | https://vibeshipped.io/sponsor |
 
-The MCP server (v1.5.0) has 16 tools.
+The MCP server (v1.7.1) has 16 tools. Each result is one JSON object: a one-line `summary` plus the data, in both the text block and `structuredContent`. List tools return compact items and a `total`; use `limit` or the get_* tools for more.
 
 With no MCP connection, fetch the REST URLs above. They return JSON with open CORS. https://vibeshipped.io/llms.txt has a plain-text summary.
+
+## Hermes Agent
+
+In Hermes Agent (Nous Research), add the server to `~/.hermes/config.yaml`, then run `/reload-mcp` (docs: https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp):
+
+```yaml
+mcp_servers:
+  vibeshipped:
+    url: "https://vibeshipped.io/api/mcp"
+    supports_parallel_tool_calls: true   # every tool is read-only except submit_app and subscribe_newsletter
+    tools:
+      exclude: [submit_app, subscribe_newsletter]   # optional: read-only use
+      resources: false
+      prompts: false
+```
+
+Tools appear as `mcp_vibeshipped_<tool>`, for example `mcp_vibeshipped_whats_new`. Install this skill with `hermes skills install well-known:https://vibeshipped.io/.well-known/skills/vibeshipped`, or search for it with `hermes skills search https://vibeshipped.io --source well-known`.
 
 ## How to answer
 

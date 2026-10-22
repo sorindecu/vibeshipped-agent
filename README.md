@@ -4,7 +4,7 @@
 
 This repo holds the plugin, extension and config files so you can use Vibe Shipped from your coding agent. It does not contain the site source.
 
-**MCP endpoint:** `https://vibeshipped.io/api/mcp` (Streamable HTTP, no auth, v1.5.0, 16 tools)
+**MCP endpoint:** `https://vibeshipped.io/api/mcp` (Streamable HTTP, no auth, v1.7.1, 16 tools)
 **Docs:** https://vibeshipped.io/agents
 
 ## Install
@@ -17,9 +17,33 @@ This repo holds the plugin, extension and config files so you can use Vibe Shipp
 | Codex CLI | `codex mcp add vibeshipped --url https://vibeshipped.io/api/mcp` |
 | Gemini CLI | `gemini extensions install https://github.com/sorindecu/vibeshipped-agent` |
 | goose | `goose session --with-streamable-http-extension https://vibeshipped.io/api/mcp` (persistent config: [`goose/goose-extension.yaml`](goose/goose-extension.yaml)) |
+| Hermes Agent | add the `mcp_servers.vibeshipped` block below to `~/.hermes/config.yaml` |
 | VS Code | `code --add-mcp '{"name":"vibeshipped","type":"http","url":"https://vibeshipped.io/api/mcp"}'` (workspace config: [`vscode/mcp.json`](vscode/mcp.json)) |
 
 Inside Claude Code you can also run `/plugin marketplace add sorindecu/vibeshipped-agent` then `/plugin install vibeshipped@vibeshipped`.
+
+## Hermes Agent
+
+Add this to `~/.hermes/config.yaml`, then restart Hermes (tools show up as `mcp_vibeshipped_<tool>`):
+
+```yaml
+mcp_servers:
+  vibeshipped:
+    url: "https://vibeshipped.io/api/mcp"
+    supports_parallel_tool_calls: true
+    tools:
+      exclude: [submit_app, subscribe_newsletter]
+      resources: false
+      prompts: false
+```
+
+Drop the `exclude` line if you want the two write tools. Install the skill too:
+
+```bash
+hermes skills install well-known:https://vibeshipped.io/.well-known/skills/vibeshipped
+```
+
+Results come back as JSON: the text block is an exact copy of `structuredContent`, with a one-line `summary` first, so Hermes keeps one copy instead of two.
 
 ## Tools (16)
 
@@ -53,5 +77,6 @@ The config and manifest files in this repo are MIT licensed (see [LICENSE](LICEN
 
 ## Changelog
 
+- **v1.7.1** (2026-10-22): Hermes Agent support. Tool results are JSON (text = exact copy of `structuredContent`, with a `summary` line), smaller default list sizes with `limit` on `list_agent_tools` and `list_harnesses`, and a well-known skills index at https://vibeshipped.io/.well-known/skills/index.json.
 - **v1.5.0** (2026-10-19): new `recommend_stack` and `get_tool`; `compare_tools` now takes 2-4 slugs across build tools, harnesses and Agent Toolbox entries. A2A agent card published. 16 tools.
 - **v1.4.0**: 14 tools.
