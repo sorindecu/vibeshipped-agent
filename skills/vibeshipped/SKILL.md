@@ -1,9 +1,9 @@
 ---
 name: vibeshipped
-description: Look up current, sourced facts about AI coding tools, coding-agent harnesses, agent frameworks, agentic tools and apps built with them, via the Vibe Shipped MCP server or JSON API. Use when choosing, comparing or recommending an AI coding tool, harness or agent tool, or when asked what's new in AI coding tools.
+description: Look up current, sourced facts about AI coding tools, coding-agent harnesses, agent frameworks, agentic tools and apps built with them, via the Vibe Shipped MCP server or JSON API. Use when choosing, comparing or recommending an AI coding tool, harness or agent tool, or when asked what's new in AI coding tools. Also finds a verified MCP server, agent or skill for a task, with install steps.
 metadata:
   homepage: https://vibeshipped.io/agents
-  version: "1.7.1"
+  version: "1.8.0"
 ---
 
 # Vibe Shipped
@@ -31,11 +31,12 @@ Prefer the MCP server if it's connected (Streamable HTTP, no auth): `https://vib
 | Which tool or harness to build an idea with | `recommend_stack` { idea, budget_usd_month, platform: "web" | "mobile", experience, preferred_harness } | n/a |
 | Apps built with AI | `search_apps`, `get_app`, `latest_apps`, `get_vibe50` | `GET https://vibeshipped.io/api/apps?q=...&tool=cursor` |
 | Whole directory as a file | n/a | `GET https://vibeshipped.io/data/apps.json` or `/data/apps.csv` (CC BY 4.0) |
+| A verified MCP server, agent or skill for a task, with install snippet | `find_tool_for_task` { task, client: "claude" | "cursor" | "chatgpt" | "hermes" } | `POST https://vibeshipped.io/api/v1/directory/find` |
 | Submit an app | `submit_app` | `POST https://vibeshipped.io/api/submit` |
 | Subscribe the user (only on request, with their own email) | `subscribe_newsletter` { email, list: "daily" \| "agent-brief" } | `POST https://vibeshipped.io/api/subscribe` |
 | Sponsorship offers and prices | `get_sponsorship_info` | https://vibeshipped.io/sponsor |
 
-The MCP server (v1.7.1) has 16 tools. Each result is one JSON object: a one-line `summary` plus the data, in both the text block and `structuredContent`. List tools return compact items and a `total`; use `limit` or the get_* tools for more.
+The MCP server (v1.8.0) has 17 tools. Each result is one JSON object: a one-line `summary` plus the data, in both the text block and `structuredContent`. List tools return compact items and a `total`; use `limit` or the get_* tools for more.
 
 With no MCP connection, fetch the REST URLs above. They return JSON with open CORS. https://vibeshipped.io/llms.txt has a plain-text summary.
 

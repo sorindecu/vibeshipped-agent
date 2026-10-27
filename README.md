@@ -4,7 +4,7 @@
 
 This repo holds the plugin, extension and config files so you can use Vibe Shipped from your coding agent. It does not contain the site source.
 
-**MCP endpoint:** `https://vibeshipped.io/api/mcp` (Streamable HTTP, no auth, v1.7.1, 16 tools)
+**MCP endpoint:** `https://vibeshipped.io/api/mcp` (Streamable HTTP, no auth, v1.8.0, 17 tools)
 **Docs:** https://vibeshipped.io/agents
 
 ## Install
@@ -77,6 +77,7 @@ The config and manifest files in this repo are MIT licensed (see [LICENSE](LICEN
 
 ## Changelog
 
+- **v1.8.0** (2026-10-27): new `find_tool_for_task` (task, optional client): top 3 MCP servers, agents or skills verified working, each with source, last verified date and a paste-ready install snippet. Backed by the new directory at https://vibeshipped.io/directory (remote MCP servers probed daily with initialize and tools/list only). 17 tools.
 - **v1.7.1** (2026-10-22): Hermes Agent support. Tool results are JSON (text = exact copy of `structuredContent`, with a `summary` line), smaller default list sizes with `limit` on `list_agent_tools` and `list_harnesses`, and a well-known skills index at https://vibeshipped.io/.well-known/skills/index.json.
 - **v1.5.0** (2026-10-19): new `recommend_stack` and `get_tool`; `compare_tools` now takes 2-4 slugs across build tools, harnesses and Agent Toolbox entries. A2A agent card published. 16 tools.
 - **v1.4.0**: 14 tools.
