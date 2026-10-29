@@ -1,5 +1,7 @@
 # Vibe Shipped agent plugin & MCP server
 
+[![sorindecu/vibeshipped-agent MCP server](https://glama.ai/mcp/servers/sorindecu/vibeshipped-agent/badges/score.svg)](https://glama.ai/mcp/servers/sorindecu/vibeshipped-agent)
+
 [Vibe Shipped](https://vibeshipped.io) is a daily, sourced directory of real apps people shipped with AI coding tools (Cursor, Claude Code, Lovable, Bolt, Replit, v0, Windsurf and more), plus AI build tools with dated official pricing, coding-agent harnesses and frameworks, revenue rankings (The Vibe Shipped 50) and a what's-new feed. Every entry links to its public source.
 
 This repo holds the plugin, extension and config files so you can use Vibe Shipped from your coding agent. It does not contain the site source.
